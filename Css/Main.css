@@ -1,0 +1,642 @@
+*, :after, :before {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: 'Cairo', sans-serif;
+   /* height:1500px*/
+}
+/* -------------------------------------------------------------Start header----------------*/
+#header{
+    width:100%;       /*عرض 100 % من الشاشة */
+    min-height:50px;  /*إقل إرتفاع نريدة هو 50 بيكسل*/
+    background:#fff;  /*لون خلفية بيضاء*/
+    box-shadow:0 0 35px rgba(0,0,0,0.1); ; /* شفافية +  عمل ظل للعنصر */
+    
+    position: fixed; /*موقعة ثابت*/
+	top: 0; /*ملتصق بالاعلى*/
+    
+    z-index: 100;  /* خاصية تجعلة في أعلى طبقة مما يضمن لنا بأنه سيكون دائماً فوق أي عنصر وذلك كونه ثابت ويتحرك معنا بطول الصفحة */
+}
+/* -------------------------------------------------------------End header----------------*/
+
+/* -------------------------------------------------------------Start container----------------*/
+
+.container{
+    max-width:1170px;
+    margin:0 auto;
+   /* background-color:#377fd0;  /*فقط من اجل التجربة*/
+   /* height:50px;               /*فقط من اجل التجربة*/
+    padding:0 15px;              /*هنا نعطية الهوامش من اليسار واليمين بقيمة 15*/
+    box-sizing:border-box;       /*هنا نحتسب هذه الهوامش من حال العرض الحالي*/
+    overflow:auto;               /*جعل العنصر يلتف حول إي عناصر تخرج عن حدودة*/
+}
+/* -------------------------------------------------------------End container----------------*/
+
+/* -------------------------------------------------------------Start logo-------------------*/
+#logo{
+    float:right
+}
+
+#logo a{
+    display:block;
+    padding:12px 15px 0;
+}
+/* -------------------------------------------------------------End logo---------------------*/
+
+
+/* -------------------------------------------------------------Start navbar-------------------*/
+#navbar{
+    float:left
+}
+
+#navbar ul{
+    list-style-type:none;  /*ازالة النقاط*/
+    margin:0;              /*ازالة الهوامش الخارجية*/
+    padding:0;             /*ازالة الهوامش الداخلية*/
+    overflow:hidden;       /*اخفاء العناصر التي قد تخرج عن القائمة*/
+    direction: rtl;
+}
+
+#navbar li{
+    float:right;
+}
+
+#navbar li a{
+    display:inline-block;
+    padding:17px 15px;
+    font-size:14px;
+    color:#333;
+    border-bottom: 2px solid #fff;
+    text-decoration:none;
+    transition: all 0.3s;
+}
+
+#navbar .dropdown-content{
+    position:absolute;
+    background-color:#f9f9f9;
+    min-width:230px;
+    box-shadow:0 8px 16px 0 rgba(0,0,0,.2);
+    z-index:1;
+    display:none; /* menu hidden*/
+}
+
+#navbar .dropdown-content li{
+    float:none;    /* من اليمين float  خاصية تعويم  li كما تشاهد عناصر القائمة بجوار بعضها البعض والسبب لذلك اننا قمنا في السابق بإعطاء عناصر  */   
+                   /* لان نريد ان نستثني هذه العناصر من هذه الخاصية حتى تعود لتعرض كل عنصر في السطر الخاص به */
+}
+
+#navbar .dropdown-content a{
+    display:block;
+    padding:15px 15px;
+    text-align:right;
+    border-bottom:2px solid #fff;
+}
+
+#navbar li a:hover{
+    border-bottom:2px solid #02b3e4;
+    color:#00aaf6;
+}
+
+/*==============================================================================*/
+
+/* لان كيف سأقوم بإظهارها ؟
+
+نريد بأن نقوم بعمل عنصر يعمل كالحساس بمجرد مرور المأوس علية يقوم بتغيير تنسيق القائمة التي إخفيناها ويظهرها بمعنا انه سوف يقوم بتغيير الكود التالي:
+
+display: none; /*مخفي*/
+ 
+/* الى */
+/*display: block; /*block بمعنى انه صندوق ظاهر*/  
+
+
+/*===============================================================================*/
+#navbar .dropdown-content a:hover, #navbar li a:hover{
+	border-bottom: 2px solid #02b3e4;
+	color: #00aaf6;
+	background: #fff;
+}
+
+#navbar .dropdown:hover .dropdown-content{
+    display: block;
+   /* border-bottom:1px solid #02b3e4;*/
+   /* border-top-style:solid */
+}
+/* -------------------------------------------------------------End navbar---------------------*/
+
+/*<!-----------------------------------------------------------Start baner-------------------->*/
+
+.banner{
+    width:100%;
+    height:500px;
+    background-image:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),url(../Images/banner.jpg); /* عمل طبقة غامقة على الصورة  */
+    background-position:center;  /* نريد أن نجعل موقع الصورة في الوسط  */
+    background-repeat:no-repeat;  /* لتمنع تكرار الصورة */
+    background-size:cover;        /* لاحظ تظهر الصورة في الوسط ولكننا نريد حجمها ان يتمدد ليغطي كل القسم لهذا سنستخدم خاصية background-size ونعطيها قيمة cover  */
+    text-align:center;
+}
+
+.banner h1{
+    color:#fff; 
+    margin:165px auto 30px;
+    font-size:42px;
+}
+
+.banner h3{
+    color:#fff;
+    font-size:18px;
+    margin-top:0;
+}
+
+.banner .join-us{
+    display:inline-block;
+    color:#fff;
+    font-size:25px;
+    background:#11b7e6;
+    border:1px solid #122b40;
+    text-decoration:none;
+    padding:15px 30px;
+    border-radius: 4px;
+    margin-top:10px;
+    transition: all 0.3s;   /* سلاسة في الدخول بشكل تدريجي  */
+}
+
+.banner .join-us:hover{
+    background:#029fcb;
+}
+
+.banner .join-us:active{    /* هنالك أيضاً تأثير أخر عند الضغط على الزر يتغير لون الخلفية إلى لون أغمق  */
+    background:#204d74;
+}
+/*<!-----------------------------------------------------------End baner-------------------->*/
+
+/*<!-----------------------------------------------------------Start about-section-------------------->*/
+.section{
+    padding:70px 0;
+    text-align:center;
+}
+
+.section h2{
+    font-size:35px;
+    color:#333;
+}
+
+.underline::after{
+    content: ""; /* في البدأية يجب عليك أن تحدد المحتوى الذي تريد إضافته بعد العنصر المستهدف في حالتنا نريد المحتوى ان يكون فارغ لهذا لن نكتب شئ بدأخلة */
+    display:block;  /* أريد أن يكون العنصر الجديد من نوع block حتى ينزل لسطر جديد ونستطيع التحكم بإبعادة */
+    width:100px;    /* سأقوم بتحديد عرضة بـ 100px */ 
+    height:2px;     /* وإرتفاعة بـ 2px */
+    background-color:#11b7e6; /* بتغيير لون الخلفية لهذا العنصر للون المطابق للموقع الأصلي */
+    margin:15px auto 40px;  /* هوامش من اعلى بقيمة 4px واسفل بقيمة 40px  */
+}
+    
+.section p{
+    max-width:720px;
+    margin:30px auto;
+    line-height:30px;
+    direction:rtl;
+    /*font-weight:normal;*/
+}
+
+.info-list ul{    /* ببعض التنسيقات على القائمة ul */ 
+    text-align:right;
+    list-style-type:circle;
+    direction:rtl;    
+}
+
+.info-list ul li{
+    margin-bottom:18px;
+    font-size:14px;
+    color:#333; 
+}
+
+.info-list li a{
+    text-decoration:none;
+    color:#00aaf6;
+}
+
+/*<!-----------------------------------------------------------End about-section-------------------->*/
+
+/* <!-- how to make tooltip  --- 
+.tooltip{
+	position: relative;
+	text-decoration: underline;
+	cursor: help;
+	color: brown;
+}
+.tooltip:hover::after{
+	content: attr(desc);
+	position: absolute;
+	left: 0;
+	top: -30px;
+	min-width: 150px;
+	z-index: 5;
+	background: #F8EA8C;
+	border: 1px solid #E48851;
+	border-radius: 10px;   */
+
+/*<!-----------------------------------------------------------<!--Start First track-->------------------------>*/
+.track{
+    width:100%;
+    background:url(../Images/track.jpg);
+    background-position: center;
+    background-repeat:no-repeat;
+    background-size:cover;
+    padding:70px 0px;
+}
+ /*=========================================================================*/
+/*.track .track-desc{
+    /*width:40%;         /* هذا الأمر مزعج اليس كذلك ان تكون مجبراً بأن تقوم بعمليات حسابية دقيقة للوصول لهدف معين الن يكون من الرائع وجود طريقة تقوم بعمل هذه الحسابات بنفسها وتعطينا النتيجة المطلوبة */
+  /*  height:200px;        /* Use Flexbox  */ 
+  /*  background:#000;
+    margin:20px;
+    float:left;*/
+/*=========================================================================*/ 
+.track .container{
+    display:flex;
+    flex-direction:column; 
+}
+
+.track .track-desc{
+    flex:1;
+   /* margin-left:20px; */
+    text-align:right;
+    padding:0 15px;
+    direction:rtl
+}
+
+.track iframe{
+    width:100%;
+    height:360px;
+    border:none;
+}
+
+.track-desc h3, 
+.track-desc h2,
+.track-desc p{
+    color:#fff;
+    margin:0px;
+}
+
+.track-desc .underline::after{
+     margin:15px 0px 30px; 
+}
+
+.track-desc h3{
+    color:#11b7e6;
+    font-size:40px;
+}
+
+.track-desc h2{
+    line-height:42px;
+    padding-top:10px;
+}
+
+.track-desc p{
+    font-size:15px;
+    text-align:justify
+}
+
+/*<!-----------------------------------------------------------<!--End First track-->--------------------------->*/
+
+
+/*<!-----------------------------------------------------------<!--Start Second track-->------------------------>*/
+
+.section > div:nth-of-type(even){
+	background: #fff;
+}
+
+.section > div:nth-of-type(even) h2,
+.section > div:nth-of-type(even) p
+{
+	color: #333;
+}
+
+.section > div:nth-of-type(even) .container{
+	flex-direction: column;
+}
+
+@media(min-width: 769px){
+	.track .container{
+		flex-direction: row;
+	}
+	.section > div:nth-of-type(even) .container{
+		flex-direction: row-reverse;
+	}
+}
+
+
+/*  -----------------------------------------------------------Start Students/teachers-------------------------*/
+.cont-background{
+    background-color:#f5f5f5;
+    margin-top:-50px;
+    direction:rtl;
+}
+
+
+.section .right-side {
+    float:right;
+    width:47%;
+  /*  background-color:brown; */
+    font-size:15px;
+    color:#fff;
+    padding: 30px 15px;
+   /* padding-right: 0;
+    padding-left: 100px;
+   */
+
+ }
+
+.section p{
+    margin-bottom:60px
+}
+    
+.img-right-side{
+   /* height:500px;*/
+    background-image : url(../Images/track.jpg);
+    background-position: 100% 0;
+    background-size:50%;
+    background-repeat:no-repeat; 
+    position: 
+}
+
+.section .right-side ul{
+    text-align:right;
+    list-style-type:circle;
+    line-height:30px;
+    font-family: Cairo,sans-serif;
+}
+
+.section .right-side li{
+    margin-bottom:12px;
+    font-size: 16px;
+    font-weight: 400; 
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+.section .right-side h2{
+    text-align:right;
+    color:#fff;
+    font-size:20px;
+}
+
+.section .right-side .underline::after{
+     margin:15px 0px 30px; 
+}
+
+
+.section .left-side {
+    float:left;
+    width:47%;
+  /*  background-color:chartreuse;  */
+    color:#000;
+    padding: 30px 15px;
+}
+
+.section .left-side ul{
+    text-align:right;
+    list-style-type:circle;
+    direction:rtl;
+    line-height:30px;
+    font-family: Cairo,sans-serif;
+}
+
+.section .left-side li{
+    margin-bottom:12px;
+    font-size: 16px;
+    font-weight: 400;
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+.section .left-side h2{
+    text-align:right;
+     font-size:20px;
+}
+
+.section .left-side .underline::after{
+     margin:15px 0px 30px; 
+}
+/*  -----------------------------------------------------------End Students/teachers-------------------------*/
+
+/*  -----------------------------------------------------------Start Record your interest--------------------*/
+
+
+.section .big-text{
+    font-size:14px;
+    margin-bottom:0;
+    margin-left:150px;
+}
+
+
+.section .small-text{
+    font-size:10px;
+    margin-bottom: 30px;
+    margin-top: 0;
+    margin-left:150px;
+}
+
+.record-table table{
+    font-family: Arial;
+    font-size:14px;
+    text-align:center;
+    width:60%;
+    direction: rtl;
+    margin-left:150px;
+}
+
+.record-table table input[type=text], .record-table table input[type=email]{
+    width:100%;
+    border:1px solid #bdc7d8;  /* سأقوم بإضافة حدود للحقول بلون محدد */
+    border-radius:5px; /* سأجعل زوايا الحقول دائرية بقيمة 5px */
+    padding:8px 10px;  /* سأقوم بإعطاء الحقول هوامش داخلية */
+    font-size:18px;    /* سنجعل حجم الخط 18px */
+    box-sizing: border-box; /* سأقوم بجعل العنصر يحتسب الهوامش من حجمة الأصلي دون أي زيادة أخرى */ 
+    height:40px;
+    margin-bottom:4px
+    
+}
+
+.record-table table select{
+    width:100%;
+    font-size:16px;  /* سنعطي الخط حجم 13px  */
+    height:40px; /* إرتفاع بقيمة 30px */
+    padding:5px 4px; /* هوامش داخلية بقيمة 5px */
+    border-color:#bdc7d8; /* سأقوم بتغيير لون الحدود */
+    margin-bottom:4px;
+    border-radius:5px;
+}
+
+.record-table table input[type=submit]{
+    
+    background-color: #12b7e5;
+    width: 820px;
+    height: 50px;
+    border-radius: 5px;
+    border: 1px solid #04a4d0a6;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: cairo;
+    text-align: center;
+    color: #fff;
+    transition: 0.5s all ease-in-out
+}
+
+input[type="submit"]:hover {
+    background-color: #0689ad
+}
+
+
+/*  -----------------------------------------------------------End Record your interest---------------------*/
+
+
+/*  -----------------------------------------------------------Start Questions------------------------------*/
+
+.faq h2 {
+    margin-top: 0px;
+    font-size: 25px
+}
+
+.faq .container h2 {
+    text-align: right;
+    padding-top: 20px;
+    padding-bottom: 10px
+}
+
+.accordion {
+    width: 100%;
+    position: relative;
+    margin: 10px;
+    direction: rtl;
+}
+
+.accordion input[type="checkbox"] {
+    position: absolute;
+    right: 2px;
+    display: none
+}
+
+.accordion label {
+    display: block;
+    padding: 10px 30px;
+    border: 1px solid #eee;
+    background-color: #fafafa;
+    color: #333;
+    font-size: 14px;
+    text-align: right;
+    font-weight: bold;
+    cursor: pointer
+}
+
+.accordion .accordion-content {
+    border: 1px solid #eee;
+    border-top: none;
+    overflow: hidden;
+    display: none
+}
+
+.accordion .accordion-content p {
+    font-size: 14px;
+    text-align: right;
+    margin: 15px;
+}
+
+.accordion input[type=checkbox]:checked ~ .accordion-content {
+    display: block;
+}
+
+.accordion label::after {
+    content: "+";
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    width: 10px;
+    height: 10px;
+
+}
+
+.accordion input[type="checkbox"]:checked ~ label::after {
+    content: "-"
+}
+/*  -----------------------------------------------------------End Questions-------------------------------*/
+
+/*-------------------------------------------------------------start footer--------------------------------*/
+
+/*end section 6*/
+
+#footer {
+    background-color: #1c1c1c
+}
+
+#footer .underline::after {
+    width: 35px
+}
+
+#main-footer {
+    background: url('https://s9.postimg.org/iwbokqbz3/mab.png') center 75% no-repeat;
+    color: #ccc;
+    text-align: center;
+    padding: 100px 0
+}
+
+#main-footer p {
+    font-size: 14px;
+    color: #bbb;
+    margin: 6px 0;
+    font-weight: bold
+}
+
+#main-footer a {
+    text-decoration: none;
+    color: #bbb
+}
+
+#sub-footer {
+    padding: 2px 0;
+	background: #131313;
+	color: #ccc;
+	text-align: center;
+	border-top: 1px solid #323232;
+    direction: rtl
+}
+
+#sub-footer p {
+    font-size: 14px;
+    color: #bbb;
+    font-weight: bold;
+    text-align: center
+}
+
+#sub-footer a {
+    text-decoration: none;
+    color: #bbb;
+
+}
+/*-------------------------------------------------------------End footer--------------------------------*/
+
+
+/*-------------------------------------------------------------Start Media query-------------------------*/
+
+@media(min-width:769px){
+	
+	.track .container{
+		flex-direction: row-reverse;
+	}
+	
+	.section > div:nth-of-type(even) .container{
+		flex-direction: row;
+	}
+	
+}
+
+/*-------------------------------------------------------------End Media query---------------------------*/
+
+
+
